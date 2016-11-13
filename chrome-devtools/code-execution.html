@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing Code Execution</title>
+</head>
+<body>
+<h2>Open console to watch code execution</h2>
+<script type="text/javascript">
+  var start = function () {
+    var loops = 100
+      , total = 0;
+    for (var i = 0; i < loops; i++) {
+      total += next(i);
+    }
+    done(total);
+  }
+
+  var next = function (num) {
+    var myNum = num * num;
+    return myNum;
+  }
+
+  var done = function (num) {
+    console.info('Added up to', num);
+  }
+</script>
+</body>
+</html>

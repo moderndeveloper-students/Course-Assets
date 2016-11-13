@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing Code Execution</title>
+</head>
+<body>
+<h2>Open console to watch code execution</h2>
+<script type="text/javascript">
+  var start = function () {
+    var data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+      , remaining = ['i', 'j', 'k', 'l', 'm', 'n', 'o', 'p']
+      , out = [];
+    for (var i = 0; i < data.length; i++) {
+      var el = data.pop()
+        , r = remaining[i];
+        out.push(el + r);
+    }
+    done(out);
+  }
+
+  var done = function (result) {
+    console.info('Concatted to', result);
+  }
+</script>
+</body>
+</html>

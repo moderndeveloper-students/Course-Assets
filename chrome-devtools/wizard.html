@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <style type="text/css">
+      #wizard {
+        margin: 1em;
+      }
+
+      form label { display: block; margin: 0 0 0.5rem -0.25rem; padding: 0.25rem;}
+
+      label.error { border: 1px solid red; }
+    </style>
+  </head>
+  <body>
+    <div id="wizard">
+      <h2>Welcome to our wizard</h2>
+      <div class="view one">
+        <p>Please complete the following fields then move on to the next page</p>
+        <form>
+          <label>
+            Your name
+            <input id="name" type="text" placeholder="John" />
+          </label>
+          <label>
+            Your age
+            <input type="number" id="age" placeholder="25">
+          </label>
+          <button id="next">Next</button>
+        </form>
+      </div>
+      <div class="view two" style="display: none;">
+        <p>Please complete the following fields to finish the wizard</p>
+        <form>
+          <label>
+            Your email
+            <input id="email" type="text" placeholder="john@example.com" />
+          </label>
+          <label>
+            Comments
+            <textarea id="comments" placeholder="This wizard is awesome"></textarea>
+          </label>
+          <button id="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var d = document
+        , form = d.forms[0]
+        , nextBtn = d.getElementById('next')
+        , submitBtn = d.getElementById('submit')
+        , nameField = d.getElementById('name')
+        , ageField = d.getElementById('age')
+        , views = d.getElementsByClassName('view');
+
+      var validate = function (callback) {
+        setTimeout(function () {
+          var name = nameField.value
+            , age = ageField.value;
+
+          if (age < 21) {
+            callback('age', "Must be over 21");
+          } else if (name.split(' ').length != 2) {
+            callback('name', "Must include first and last name only");
+          } else {
+            callback();
+          }
+        }, 3000);
+      }
+
+      var nextHandler = function (ev) {
+        ev.stopPropagation();
+        ev.preventDefault();
+        validate(function (err, message) {
+          if (err) {
+            var f = window[err + 'Field']
+              , label = f.parentElement;
+
+            label.classList.add('error');
+          } else {
+            var errors = d.getElementsByClassName('error');
+            for (var i = 0, ii = errors.length; i < ii; i++) {
+              errors[i].classList.remove('error');
+            }
+            goNext();
+          }
+        });
+        return false;
+      }
+
+      var goNext = function () {
+        views[0].style.display = 'none';
+        views[1].style.display = 'block';
+      }
+
+      nextBtn.addEventListener('click', nextHandler);
+    </script>
+  </body>
+</html>
