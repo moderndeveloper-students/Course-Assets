@@ -1,0 +1,22 @@
+[
+  {
+    "name": "John Smith",
+    "tag": "manager",
+    "department": "Sales"
+  },
+  {
+    "name": "Julie Wong",
+    "tag": "executive",
+    "department": "Engineering"
+  },
+  {
+    "name": "Carson Jones",
+    "tag": "intern",
+    "department": "Marketing"
+  },
+  {
+    "name": "Jane Pomona",
+    "tag": "programmer",
+    "department": "Engineering"
+  }
+]
