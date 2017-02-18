@@ -1,0 +1,20 @@
+/* Top level element of our component */
+.top-element {
+  /* Primary color for branding */
+  border: 1px solid #999999;
+  margin: 1rem;
+}
+
+.top-element .title {
+  color: #3F3F3F;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Used as subtitle */
+.top-element .title span {
+  border-bottom: 1px solid #999999;
+  color: #262626;
+  font-size: 1rem;
+  font-weight: normal;
+}
