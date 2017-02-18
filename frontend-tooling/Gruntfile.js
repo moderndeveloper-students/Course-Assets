@@ -1,8 +1,15 @@
 module.exports = function(grunt) {
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Project configuration.
   grunt.initConfig({
-    // Config will go here
+    uglify: {
+      all: {
+        files: {
+          'dest/app.js': ['js/*.js']
+        }
+      }
+    }
   });
 
   // Default task(s).
