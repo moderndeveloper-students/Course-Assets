@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  require('load-grunt-tasks')(grunt);
 
   // Project configuration.
   grunt.initConfig({
@@ -9,6 +9,9 @@ module.exports = function(grunt) {
           'dest/app.js': ['js/*.js']
         }
       }
+    },
+    htmllint: {
+      all: ['html/*.html']
     }
   });
 

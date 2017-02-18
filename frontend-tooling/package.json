@@ -12,7 +12,9 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-uglify": "^2.1.0",
+    "grunt-html": "^8.3.2",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.0.2"
+    "gulp-clean-css": "^3.0.2",
+    "load-grunt-tasks": "^3.5.2"
   }
 }
