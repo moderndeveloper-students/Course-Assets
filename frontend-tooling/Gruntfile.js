@@ -12,6 +12,11 @@ module.exports = function(grunt) {
     },
     htmllint: {
       all: ['html/*.html']
+    },
+    csslint: {
+      all: {
+        src: ['styles/*.css']
+      }
     }
   });
 
