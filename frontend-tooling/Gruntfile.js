@@ -55,6 +55,14 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+    jasmine: {
+      all: {
+        src: ['js/*.js'],
+        options: {
+          specs: ['spec/**/*Spec.js']
+        }
+      }
     }
   });
 
