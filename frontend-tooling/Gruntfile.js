@@ -17,11 +17,14 @@ module.exports = function(grunt) {
       all: {
         src: ['styles/*.css']
       }
+    },
+    jshint: {
+      all: ['Gruntfile.js', 'js/*.js']
     }
   });
 
   // Default task(s).
   grunt.registerTask('default', function () {
-    console.log('Grunt has run')
+    console.log('Grunt has run');
   });
 };
