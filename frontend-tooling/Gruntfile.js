@@ -3,6 +3,13 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    cssmin: {
+      all: {
+        files: {
+          'dest/app.min.css': ['styles/*.css']
+        }
+      }
+    },
     uglify: {
       all: {
         files: {
@@ -63,8 +70,19 @@ module.exports = function(grunt) {
           specs: ['spec/**/*Spec.js']
         }
       }
+    },
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          src: ['img/*.{png,jpg,gif}'],
+          dest: 'dest/'
+        }]
+      }
     }
   });
+
+  grunt.registerTask('minify', ['cssmin', 'uglify']);
 
   // Default task(s).
   grunt.registerTask('default', function () {
