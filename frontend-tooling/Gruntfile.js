@@ -79,6 +79,12 @@ module.exports = function(grunt) {
           dest: 'dest/'
         }]
       }
+    },
+    version: {
+      src: ['package.json', 'index.html'],
+      options: {
+        prefix: '\\?version='
+      }
     }
   });
 

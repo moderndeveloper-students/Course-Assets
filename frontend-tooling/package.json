@@ -20,6 +20,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-html": "^8.3.2",
     "grunt-sass": "^2.0.0",
+    "grunt-version": "^1.1.1",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.0.2",
     "load-grunt-tasks": "^3.5.2"
