@@ -89,7 +89,14 @@ module.exports = function(grunt) {
     },
     exec: {
       add: 'git add .', // Add all changed files to the commit
-      commit: 'git commit -am "Releasing <%= pkg.version %>"', // Actually make the commit
+      commit: {
+          cmd: function () {
+            var oldPkg = this.config('pkg') // Get the pkg property from our config
+              , pkg = grunt.file.readJSON('package.json')
+              , cmd = 'git commit -am "Updating from ' + oldPkg.version + ' to ' + pkg.version + '"';
+            return cmd;
+        }
+      },
       push: 'git push' // Send our changes to the repository
     }
   });
