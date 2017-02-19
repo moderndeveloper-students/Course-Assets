@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     cssmin: {
       all: {
         files: {
@@ -88,7 +89,7 @@ module.exports = function(grunt) {
     },
     exec: {
       add: 'git add .', // Add all changed files to the commit
-      commit: 'git commit -am "Releasing"', // Actually make the commit
+      commit: 'git commit -am "Releasing <%= pkg.version %>"', // Actually make the commit
       push: 'git push' // Send our changes to the repository
     }
   });
@@ -101,7 +102,12 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('deploy', ['exec:add', 'exec:commit', 'exec:push']);
+  grunt.registerTask('deploy', function (releaseType) {
+    if (!releaseType) {
+      releaseType = 'patch';
+    }
+    grunt.task.run(['version::' + releaseType, 'exec:add', 'exec:commit', 'exec:push']);
+  });
 
   // Default task(s).
   grunt.registerTask('default', function () {
