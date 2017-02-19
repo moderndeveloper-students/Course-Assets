@@ -82,7 +82,13 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('minify', ['cssmin', 'uglify']);
+  grunt.registerTask('minify', function (full) {
+    if (full) {
+      grunt.task.run(['cssmin', 'uglify', 'imagemin']);
+    } else {
+      grunt.task.run(['cssmin', 'uglify']);
+    }
+  });
 
   // Default task(s).
   grunt.registerTask('default', function () {
