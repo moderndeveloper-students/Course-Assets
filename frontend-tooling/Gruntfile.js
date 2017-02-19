@@ -85,6 +85,11 @@ module.exports = function(grunt) {
       options: {
         prefix: '[\\?]?version[\\\'"]?[=:]\\s*[\\\'"]?'
       }
+    },
+    exec: {
+      add: 'git add .', // Add all changed files to the commit
+      commit: 'git commit -am "Releasing"', // Actually make the commit
+      push: 'git push' // Send our changes to the repository
     }
   });
 
@@ -95,6 +100,8 @@ module.exports = function(grunt) {
       grunt.task.run(['cssmin', 'uglify']);
     }
   });
+
+  grunt.registerTask('deploy', ['exec:add', 'exec:commit', 'exec:push']);
 
   // Default task(s).
   grunt.registerTask('default', function () {

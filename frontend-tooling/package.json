@@ -1,6 +1,6 @@
 {
   "name": "frontend-tooling",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,6 +18,7 @@
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-exec": "^1.0.1",
     "grunt-html": "^8.3.2",
     "grunt-sass": "^2.0.0",
     "grunt-version": "^1.1.1",
