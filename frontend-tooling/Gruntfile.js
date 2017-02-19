@@ -83,7 +83,7 @@ module.exports = function(grunt) {
     version: {
       src: ['package.json', 'index.html'],
       options: {
-        prefix: '\\?version='
+        prefix: '[\\?]?version[\\\'"]?[=:]\\s*[\\\'"]?'
       }
     }
   });
