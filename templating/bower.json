@@ -1,0 +1,21 @@
+{
+  "name": "templating",
+  "homepage": "https://github.com/moderndeveloper-students/Course-Assets",
+  "authors": [
+    "Alex Vanston <alex@mrvdot.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "zepto": "^1.2.0"
+  }
+}
