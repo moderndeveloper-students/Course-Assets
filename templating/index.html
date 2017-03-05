@@ -3,6 +3,17 @@
 <head>
   <title>Templating</title>
   <link rel="stylesheet" type="text/css" href="users.css">
+  <script id="users-template" type="text/x-handlebars-template">
+    {{#each users}}
+    <div class="user">
+      <h2 class="name">{{name}}</h2>
+      <div class="address">
+        <p class="street">{{address.suite}} {{address.street}}</p>
+        <p class="city-zip">{{address.city}}, {{address.zipcode}}</p>
+      </div>
+    </div>
+    {{/each}}
+  </script>
 </head>
 <body>
 <div id="users">
