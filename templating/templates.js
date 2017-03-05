@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, Handlebars) {
   var userUrl = 'https://jsonplaceholder.typicode.com/users';
 
   var template = [
@@ -30,4 +30,4 @@
   $.get(userUrl, function (response) {
     setUsers(response);
   });
-})(Zepto);
+})(Zepto, Handlebars);

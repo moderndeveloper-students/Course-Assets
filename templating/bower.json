@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "zepto": "^1.2.0"
+    "zepto": "^1.2.0",
+    "handlebars": "^4.0.5"
   }
 }
