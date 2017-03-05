@@ -1,30 +1,22 @@
 (function ($, Handlebars) {
+  var $users = $('#users');
   var userUrl = 'https://jsonplaceholder.typicode.com/users';
 
-  var template = [
+  var template = Handlebars.compile([
+    '{{#each users}}',
     '<div class="user">',
-      '<h2 class="name">$NAME</h2>',
+      '<h2 class="name">{{name}}</h2>',
       '<div class="address">',
-        '<p class="street">$SUITE $STREET</p>',
-        '<p class="city-zip">$CITY, $ZIPCODE</p>',
+        '<p class="street">{{address.suite}} {{address.street}}</p>',
+        '<p class="city-zip">{{address.city}}, {{address.zipcode}}</p>',
       '</div>',
-    '</div>'
-  ].join("\r\n");
-
-  var $users = $('#users');
+    '</div>',
+    '{{/each}}'
+  ].join("\r\n"));
 
   var setUsers = function (users) {
-    for (var i = 0, ii = users.length; i < ii; i++) {
-      var user = users[i];
-      var html = template
-        .replace('$NAME', user.name)
-        .replace('$SUITE', user.address.suite)
-        .replace('$STREET', user.address.street)
-        .replace('$CITY', user.address.city)
-        .replace('$ZIPCODE', user.address.zipcode);
-
-      $users.append(html);
-    }
+    var html = template({ users: users });
+    $users.append(html);
   }
 
   $.get(userUrl, function (response) {
