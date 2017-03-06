@@ -1,6 +1,6 @@
 (function ($, Handlebars) {
   var $users = $('#users');
-  var userUrl = 'https://jsonplaceholder.typicode.com/users';
+  var userUrl = 'users.json';
 
   var templateStr = $('#users-template').html();
   var template = Handlebars.compile(templateStr);
