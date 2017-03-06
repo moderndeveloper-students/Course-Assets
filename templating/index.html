@@ -5,8 +5,8 @@
   <link rel="stylesheet" type="text/css" href="users.css">
   <script id="users-template" type="text/x-handlebars-template">
     <h1>Companies</h1>
-    {{#companyList users}}
-      <a href="{{website}}">{{company.name}}</a>
+    {{#companyList users company="company.name"}}
+      <a href="{{@website}}">{{@company}}</a>
     {{/companyList}}
     <h1>Users</h1>
     {{#each users}}

@@ -10,10 +10,33 @@
     return val + num;
   });
 
+  var normalizeUrl = function (url) {
+    if (url.substring(0, 4) != 'http') {
+      return 'http://' + url;
+    }
+    return url;
+  }
+
+  var companyDefaults = {
+    company: 'company'
+  };
+
   Handlebars.registerHelper('companyList', function (context, options) {
+    var data, companyTemplate, companyFn;
+    if (options.data) {
+      console.log('options', options);
+      data = Handlebars.createFrame(options.data);
+      companyTemplate = options.hash.company || companyDefaults.company;
+      companyFn = Handlebars.compile('{{' + companyTemplate + '}}');
+    }
     var out = '<ul class="companies">';
     for (var i = 0, ii = context.length; i < ii; i++) {
-      out += '<li class="company">' + options.fn(context[i]) + '</li>';
+      var c = context[i];
+      if (data) {
+        data.website = normalizeUrl(c.website);
+        data.company = companyFn(c);
+      }
+      out += '<li class="company">' + options.fn(context[i], { data: data }) + '</li>';
     }
     return out + '</ul>';
   });
