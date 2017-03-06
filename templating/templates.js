@@ -2,6 +2,14 @@
   var $users = $('#users');
   var userUrl = 'users.json';
 
+  Handlebars.registerHelper('addOne', function (val) {
+    return val + 1;
+  });
+
+  Handlebars.registerHelper('add', function (val, num) {
+    return val + num;
+  });
+
   var templateStr = $('#users-template').html();
   var template = Handlebars.compile(templateStr);
 
