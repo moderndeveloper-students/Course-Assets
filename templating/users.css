@@ -18,3 +18,7 @@
 #users .user .address {
   color: #1a1a1a;
 }
+
+#users .user .address.missing {
+  font-style: italic;
+}

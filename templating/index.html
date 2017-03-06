@@ -7,10 +7,17 @@
     {{#each users}}
     <div class="user">
       <h2 class="name">{{@index}}/{{../users.length}} {{name}}</h2>
+      {{#if address}}
       <div class="address">
         <p class="street">{{address.suite}} {{address.street}}</p>
         <p class="city-zip">{{address.city}}, {{address.zipcode}}</p>
       </div>
+      {{else}}
+      <div class="address missing">
+        <p>No address specified</p>
+        <p>Please update the record</p>
+      </div>
+      {{/if}}
     </div>
     {{/each}}
   </script>
