@@ -4,6 +4,11 @@
   <title>Templating</title>
   <link rel="stylesheet" type="text/css" href="users.css">
   <script id="users-template" type="text/x-handlebars-template">
+    <h1>Companies</h1>
+    {{#companyList users}}
+      <a href="{{website}}">{{company.name}}</a>
+    {{/companyList}}
+    <h1>Users</h1>
     {{#each users}}
     <div class="user">
       <h2 class="name">{{add @index 1}}/{{../users.length}} {{name}}</h2>

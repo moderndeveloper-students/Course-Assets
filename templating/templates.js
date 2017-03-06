@@ -10,6 +10,14 @@
     return val + num;
   });
 
+  Handlebars.registerHelper('companyList', function (context, options) {
+    var out = '<ul class="companies">';
+    for (var i = 0, ii = context.length; i < ii; i++) {
+      out += '<li class="company">' + options.fn(context[i]) + '</li>';
+    }
+    return out + '</ul>';
+  });
+
   var templateStr = $('#users-template').html();
   var template = Handlebars.compile(templateStr);
 

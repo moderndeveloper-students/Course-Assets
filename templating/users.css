@@ -22,3 +22,19 @@
 #users .user .address.missing {
   font-style: italic;
 }
+
+.companies {
+  padding-left: 0;
+}
+
+.companies .company {
+  display: inline-block;
+  border-bottom: 1px solid #1a1a1a;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  list-style: none;
+}
+
+.companies .company a {
+  text-decoration: none;
+}
