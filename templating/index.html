@@ -8,10 +8,12 @@
     <div class="user">
       <h2 class="name">{{@index}}/{{../users.length}} {{name}}</h2>
       {{#if address}}
+      {{#with address}}
       <div class="address">
-        <p class="street">{{address.suite}} {{address.street}}</p>
-        <p class="city-zip">{{address.city}}, {{address.zipcode}}</p>
+        <p class="street">{{suite}} {{street}}</p>
+        <p class="city-zip">{{city}}, {{zipcode}}</p>
       </div>
+      {{/with}}
       {{else}}
       <div class="address missing">
         <p>No address specified</p>
