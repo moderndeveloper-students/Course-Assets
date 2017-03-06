@@ -11,22 +11,23 @@
     <h1>Users</h1>
     {{#each users}}
     <div class="user">
-      <h2 class="name">{{add @index 1}}/{{../users.length}} {{name}}</h2>
-      {{#if address}}
-      {{#with address}}
-      <div class="address">
-        <p class="street">{{suite}} {{street}}</p>
-        <p class="city-zip">{{city}}, {{zipcode}}</p>
-      </div>
-      {{/with}}
-      {{else}}
-      <div class="address missing">
-        <p>No address specified</p>
-        <p>Please update the record</p>
-      </div>
-      {{/if}}
+      {{> userHeader total=../users.length}}
+      {{> address address}}
     </div>
     {{/each}}
+  </script>
+  <script id="address-template" type="text/x-handlebars-template">
+    {{#if this}}
+    <div class="address">
+      <p class="street">{{suite}} {{street}}</p>
+      <p class="city-zip">{{city}}, {{zipcode}}</p>
+    </div>
+    {{else}}
+    <div class="address missing">
+      <p>No address specified</p>
+      <p>Please update the record</p>
+    </div>
+    {{/if}}
   </script>
 </head>
 <body>

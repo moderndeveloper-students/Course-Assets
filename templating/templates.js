@@ -10,6 +10,8 @@
     return val + num;
   });
 
+  Handlebars.registerPartial('userHeader', '<h2 class="name">{{add @index 1}}/{{total}} {{name}}</h2>');
+
   var normalizeUrl = function (url) {
     if (url.substring(0, 4) != 'http') {
       return 'http://' + url;
@@ -24,7 +26,6 @@
   Handlebars.registerHelper('companyList', function (context, options) {
     var data, companyTemplate, companyFn;
     if (options.data) {
-      console.log('options', options);
       data = Handlebars.createFrame(options.data);
       companyTemplate = options.hash.company || companyDefaults.company;
       companyFn = Handlebars.compile('{{' + companyTemplate + '}}');
@@ -40,6 +41,9 @@
     }
     return out + '</ul>';
   });
+  
+  var addressStr = $('#address-template').html();
+  Handlebars.registerPartial('address', addressStr);
 
   var templateStr = $('#users-template').html();
   var template = Handlebars.compile(templateStr);
