@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bubbling Example</title>
+</head>
+<body>
+  <div id="top">
+    Event hit <span class="count">0</span> times.
+    <div id="middle">
+      Event hit <span class="count">0</span> times.
+      <div id="bottom">
+        Event hit <span class="count">0</span> times.
+        <button id="trigger">
+          Clicked <span class="count">0</span> times
+        </button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript">
+    (function ($) {
+      var $top = $('#top')
+        , $middle = $('#middle')
+        , $bottom = $('#bottom')
+        , $trigger = $('#trigger');
+
+      var counter = function ($el) {
+        var span = $el.children('.count')
+          , current = Number.parseInt(span.text());
+
+        span.text(++current);
+      }
+
+      $top.on('click', 'button', function () {
+        counter($top);
+      });
+
+      var blockMiddle = false;
+      $middle.on('click', 'button', function (ev) {
+        if (blockMiddle) {
+          ev.stopPropagation();
+        }
+        blockMiddle = !blockMiddle;
+        counter($middle);
+      });
+
+      var blockBottom = false;
+      $bottom.on('click', 'button', function (ev) {
+        if (blockBottom) {
+          ev.stopPropagation();
+        }
+        blockBottom = !blockBottom;
+        counter($bottom);
+      });
+
+      var blockTrigger = false;
+      $trigger.on('click', function (ev) {
+        if (blockTrigger) {
+          ev.stopPropagation();
+        }
+        blockTrigger = !blockTrigger;
+        counter($trigger);
+      });
+    })(jQuery);
+  </script>
+</body>
+</html>
