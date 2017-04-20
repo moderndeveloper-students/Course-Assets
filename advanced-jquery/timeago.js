@@ -31,12 +31,17 @@
   Timeago.prototype.render = function () {
     var str = this.dateMoment.fromNow();
     this.element.text(str);
+    var self = this;
+    setTimeout(function () {
+      self.render();
+    }, 1000);
     return this;
   }
   
   $.fn.timeago = function (options) {
-    new Timeago(this, options);
+    this.each(function () {
+      new Timeago($(this), options);
+    });
     return this;
   };
-  
 })(jQuery);

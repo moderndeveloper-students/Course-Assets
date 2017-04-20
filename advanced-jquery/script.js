@@ -1,3 +1,4 @@
 (function ($) {
-  $('.timeago').timeago();
+  var now = new Date();
+  $('.timeago').text(now.toISOString()).timeago();
 })(jQuery);
