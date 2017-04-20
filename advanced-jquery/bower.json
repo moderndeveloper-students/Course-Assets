@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "jquery": "^3.2.1",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.12.1",
+    "moment": "momentjs#^2.18.1"
   }
 }

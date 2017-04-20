@@ -23,24 +23,19 @@
   Welcome to Advanced jQuery
 </h1>
 <h2>
-  Check out our date selection
+  Check out our custom plugin
 </h2>
-<form>
-  <div class="form-group">
-    <label>
-      Date of birth
-    </label>
-    <input type="text" class="datepicker" name="birthday" />
-  </div>
-  <div class="form-group">
-    <label>
-      When did you start high school?
-    </label>
-    <input type="text" class="datepicker" name="high-school" />
-  </div>
-</form>
+<div class="form-group">
+  <h3>From text:</h3>
+  <p class="timeago">04/15/2017 14:30</p>
+</div>
+<div class="form-group">
+  <h3>From attribute</h3>
+  <abbr class="timeago" date="2017-04-15T19:30:00.000Z"></abbr>
+</div>
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript" src="bower_components/moment/moment.js"></script>
+<script type="text/javascript" src="timeago.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
