@@ -3,6 +3,17 @@
   var defaults = {
     // set defaults
   };
+
+  var getDate = function (element) {
+    var date = element.attr('date');
+    if (!date && element.text()) {
+      date = element.text();
+    }
+    if (!date) {
+      throw("No date could be found for", element);
+    }
+    return date;
+  }
   
   function Timeago(element, options) {
     this.config = $.extend({}, defaults, options);
@@ -12,8 +23,16 @@
 
   
   Timeago.prototype.init = function() {
-    // plugin logic goes here...
+    this.date = getDate(this.element);
+    this.dateMoment = moment(this.date);
+    this.render();
   };
+
+  Timeago.prototype.render = function () {
+    var str = this.dateMoment.fromNow();
+    this.element.text(str);
+    return this;
+  }
   
   $.fn.timeago = function (options) {
     new Timeago(this, options);
