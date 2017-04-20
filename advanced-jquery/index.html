@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Advanced jQuery</title>
+  <link rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/black-tie/jquery-ui.css"/>
   <style type="text/css">
     #container {
       width: 1000px;
@@ -9,15 +10,10 @@
       margin: 0 auto;
     }
 
-    .bar {
-      height: 20px;
-      background-color: blue;
-      width: 0;
-    }
-
-    .done {
-      display: none;
-      margin-left: 0.5rem;
+    .form-group {
+      margin-bottom: 1rem;
+      padding: 0.5rem 0;
+      box-shadow: 0 0 1px 1px lightgray;
     }
   </style>
 </head>
@@ -27,19 +23,24 @@
   Welcome to Advanced jQuery
 </h1>
 <h2>
-  Check out our step counter
+  Check out our date selection
 </h2>
-<div class="trigger">
-  <button>Trigger animation</button>
-</div>
-<div class="animate-me">
-  <div class="bar"></div>
-  <div class="counter">
-    <span class="percent">0</span>%
-    <span class="done">All done!</span>
+<form>
+  <div class="form-group">
+    <label>
+      Date of birth
+    </label>
+    <input type="text" class="datepicker" name="birthday" />
   </div>
-</div>
+  <div class="form-group">
+    <label>
+      When did you start high school?
+    </label>
+    <input type="text" class="datepicker" name="high-school" />
+  </div>
+</form>
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.js"></script>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

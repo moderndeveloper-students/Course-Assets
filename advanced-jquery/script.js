@@ -1,25 +1,21 @@
 (function ($) {
-  var counter = $('.animate-me .counter');
-  var setPercent = function (val) {
-    counter.find('.percent').text(val);
-  }
+  var datepickers = $('.datepicker');
 
-  $('.trigger button').on('click', function () {
-    $('.animate-me .bar').css('width', 0).animate({
-      width: '100%'
-    }, {
-      duration: 2000,
-      start: function () {
-        counter.find('.done').hide();
-        setPercent(0);
-      },
-      progress: function (promise, progress, remainingTime) {
-        var percent = Math.floor(progress * 100);
-        setPercent(percent);
-      },
-      complete: function () {
-        counter.find('.done').show();
-      }
+  var bday = datepickers.filter('[name="birthday"]')
+    .datepicker({
+      maxDate: '-5y',
+      dateFormat: 'M dd, yy'
     });
+
+  var hs = datepickers.filter('[name="high-school"]').datepicker();
+
+  bday.datepicker('option', 'onSelect', function (dateText) {
+    var date = $.datepicker.parseDate('M dd, yy', dateText)
+      , currentYear = date.getFullYear()
+      , minYear = currentYear + 5;
+
+    date.setFullYear(minYear);
+
+    hs.datepicker('option', 'minDate', date);
   });
 })(jQuery);
