@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Advanced jQuery</title>
-  <link rel="stylesheet" type="text/css" href="bower_components/jquery-ui/themes/black-tie/jquery-ui.css"/>
   <style type="text/css">
     #container {
       width: 1000px;
@@ -10,10 +9,20 @@
       margin: 0 auto;
     }
 
-    .form-group {
-      margin-bottom: 1rem;
-      padding: 0.5rem 0;
-      box-shadow: 0 0 1px 1px lightgray;
+    .block {
+      width: 200px;
+      height: 100px;
+      background: blue;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .block span {
+      display: block;
+      padding-top: 45px;
+      text-align: center;
+      font-weight: bold;
+      text-transform: capitalize;
     }
   </style>
 </head>
@@ -23,24 +32,42 @@
   Welcome to Advanced jQuery
 </h1>
 <h2>
-  Check out our custom plugin
+  Check out different types of effects
 </h2>
-<div class="form-group">
-  <h3>From text:</h3>
-  <p class="timeago">2017-04-15T19:30:00.000Z</p>
+<div class="blocks">
+  <div class="block" data-effect="blind">
+    <span>blind</span>
+  </div>
+  <div class="block" data-effect="bounce">
+    <span>bounce</span>
+  </div>
+  <div class="block" data-effect="clip">
+    <span>clip</span>
+  </div>
+  <div class="block" data-effect="drop">
+    <span>drop</span>
+  </div>
+  <div class="block" data-effect="explode">
+    <span>explode</span>
+  </div>
+  <div class="block" data-effect="fade">
+    <span>fade</span>
+  </div>
+  <div class="block" data-effect="fold">
+    <span>fold</span>
+  </div>
+  <div class="block" data-effect="highlight">
+    <span>highlight</span>
+  </div>
+  <div class="block" data-effect="puff">
+    <span>puff</span>
+  </div>
+  <div class="block" data-effect="pulsate">
+    <span>pulsate</span>
+  </div>
 </div>
-<div class="form-group">
-  <h3>From attribute</h3>
-  <abbr class="timeago" date="2017-04-15T19:30:00.000Z"></abbr>
-</div>
-
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="bower_components/moment/moment.js"></script>
-<script type="text/javascript" src="timeago.js"></script>
-
-<script src="http://code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="old-plugin.js"></script>
-
-<script type="text/javascript" src="script.js"></script>
+<script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript" src="effects.js"></script>
 </body>
 </html>
