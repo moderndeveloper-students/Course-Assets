@@ -15,7 +15,7 @@
     // plugin logic goes here...
   };
   
-  $fn.timeago = function (options) {
+  $.fn.timeago = function (options) {
     new Timeago(this, options);
     return this;
   };
