@@ -1,33 +1,25 @@
 (function ($) {
-  var toggles, els;
+  var counter = $('.animate-me .counter');
+  var setPercent = function (val) {
+    counter.find('.percent').text(val);
+  }
 
-  var slideUp = function (els, callback) {
-    els.animate({
-      height: '0px'
-    }, 400, function () {
-      els.hide();
-      if (callback) {
-        callback();
+  $('.trigger button').on('click', function () {
+    $('.animate-me .bar').css('width', 0).animate({
+      width: '100%'
+    }, {
+      duration: 2000,
+      start: function () {
+        counter.find('.done').hide();
+        setPercent(0);
+      },
+      progress: function (promise, progress, remainingTime) {
+        var percent = Math.floor(progress * 100);
+        setPercent(percent);
+      },
+      complete: function () {
+        counter.find('.done').show();
       }
     });
-  }
-
-  var slideDown = function (els, callback) {
-    els.css('height', 0).show();
-    els.animate({
-      height: '100px'
-    }, 400, callback);
-  }
-  
-  toggles = $('.toggle').on('click', 'button', function () {
-    slideDown(els, function () {
-      slideUp(toggles);
-    })
-  });
-
-  els = $('.hide-me').on('click', 'button', function () {
-    slideUp(els, function () {
-      slideDown(toggles);
-    })
   });
 })(jQuery);

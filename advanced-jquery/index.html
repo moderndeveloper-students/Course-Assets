@@ -9,8 +9,15 @@
       margin: 0 auto;
     }
 
-    .toggle.hidden {
+    .bar {
+      height: 20px;
+      background-color: blue;
+      width: 0;
+    }
+
+    .done {
       display: none;
+      margin-left: 0.5rem;
     }
   </style>
 </head>
@@ -20,29 +27,17 @@
   Welcome to Advanced jQuery
 </h1>
 <h2>
-  Check out different types of easing
+  Check out our step counter
 </h2>
-<div class="toggle hidden">
-  <button>Unhide elements</button>
+<div class="trigger">
+  <button>Trigger animation</button>
 </div>
-<p>"Both! both!&mdash;it is both!"&mdash;cried Daggoo again with a joyful shout; and soon after, Queequeg was seen boldly striking out with one hand, and with the other clutching the long hair of the Indian. Drawn into the waiting boat, they were quickly brought to the deck; but Tashtego was long in coming to, and Queequeg did not look very brisk.</p>
-
-<p>Now, how had this noble rescue been accomplished? Why, diving after the slowly descending head, Queequeg with his keen sword had made side lunges near its bottom, so as to scuttle a large hole there; then dropping his sword, had thrust his long arm far inwards and upwards, and so hauled out poor Tash by the head. He averred, that upon first thrusting in for him, a leg was presented; but well knowing that that was not as it ought to be, and might occasion great trouble;&mdash;he had thrust back the leg, and by a dexterous heave and toss, had wrought a somerset upon the Indian; so that with the next trial, he came forth in the good old way&mdash;head foremost. As for the great head itself, that was doing as well as could be expected.</p>
-
-<div class="hide-me">
-  <h2>And here is an element to be hidden</h2>
-  <button>Click to hide</button>
-</div>
-
-<p>And thus, through the courage and great skill in obstetrics of Queequeg, the deliverance, or rather, delivery of Tashtego, was successfully accomplished, in the teeth, too, of the most untoward and apparently hopeless impediments; which is a lesson by no means to be forgotten. Midwifery should be taught in the same course with fencing and boxing, riding and rowing.</p>
-
-<p>I know that this queer adventure of the Gay-Header's will be sure to seem incredible to some landsmen, though they themselves may have either seen or heard of some one's falling into a cistern ashore; an accident which not seldom happens, and with much less reason too than the Indian's, considering the exceeding slipperiness of the curb of the Sperm Whale's well.</p>
-
-<p>But, peradventure, it may be sagaciously urged, how is this? We thought the tissued, infiltrated head of the Sperm Whale, was the lightest and most corky part about him; and yet thou makest it sink in an element of a far greater specific gravity than itself. We have thee there. Not at all, but I have ye; for at the time poor Tash fell in, the case had been nearly emptied of its lighter contents, leaving little but the dense tendinous wall of the well&mdash;a double welded, hammered substance, as I have before said, much heavier than the sea water, and a lump of which sinks in it like lead almost. But the tendency to rapid sinking in this substance was in the present instance materially counteracted by the other parts of the head remaining undetached from it, so that it sank very slowly and deliberately indeed, affording Queequeg a fair chance for performing his agile obstetrics on the run, as you may say. Yes, it was a running delivery, so it was.</p>
-
-<p>Now, had Tashtego perished in that head, it had been a very precious perishing; smothered in the very whitest and daintiest of fragrant spermaceti; coffined, hearsed, and tombed in the secret inner chamber and sanctum sanctorum of the whale. Only one sweeter end can readily be recalled&mdash;the delicious death of an Ohio honey-hunter, who seeking honey in the crotch of a hollow tree, found such exceeding store of it, that leaning too far over, it sucked him in, so that he died embalmed. How many, think ye, have likewise fallen into Plato's honey head, and sweetly perished there?</p>
-
-<p>To scan the lines of his face, or feel the bumps on the head of this Leviathan; this is a thing which no Physiognomist or Phrenologist has as yet undertaken. Such an enterprise would seem almost as hopeful as for Lavater to have scrutinized the wrinkles on the Rock of Gibraltar, or for Gall to have mounted a ladder and manipulated the Dome of the Pantheon. Still, in that famous work of his, Lavater not only treats of the various faces of men, but also attentively studies the faces of horses, birds, serpents, and fish; and dwells in detail upon the modifications of expression discernible therein. Nor have Gall and his disciple Spurzheim failed to throw out some hints touching the phrenological characteristics of other beings than man. Therefore, though I am but ill qualified for a pioneer, in the application of these two semi-sciences to the whale, I will do my endeavor. I try all things; I achieve what I can.</p>
+<div class="animate-me">
+  <div class="bar"></div>
+  <div class="counter">
+    <span class="percent">0</span>%
+    <span class="done">All done!</span>
+  </div>
 </div>
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
 <script type="text/javascript" src="script.js"></script>
