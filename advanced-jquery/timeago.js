@@ -1,5 +1,4 @@
 ;(function($) {
-
   var defaults = {
     // set defaults
   };
@@ -18,6 +17,7 @@
   function Timeago(element, options) {
     this.config = $.extend({}, defaults, options);
     this.element = element;
+    this.element.data('timeago', this);
     this.init();
   }
 
@@ -32,15 +32,32 @@
     var str = this.dateMoment.fromNow();
     this.element.text(str);
     var self = this;
-    setTimeout(function () {
+    this.renderTimeout = setTimeout(function () {
       self.render();
     }, 1000);
+    return this;
+  }
+
+  Timeago.prototype.stop = function () {
+    if (this.renderTimeout) {
+      clearTimeout(this.renderTimeout);
+    }
     return this;
   }
   
   $.fn.timeago = function (options) {
     this.each(function () {
-      new Timeago($(this), options);
+      var $el = $(this)
+        , instance;
+      if (instance = $el.data('timeago')) {
+        if (typeof(options) === 'string' && typeof(instance[options]) == 'function') {
+          instance[options]();
+        } else {
+          console.warn('Timeago already initialized on', this, 'and', options, 'is not a valid instance method');
+        }
+        return;
+      }
+      new Timeago($el, options);
     });
     return this;
   };
