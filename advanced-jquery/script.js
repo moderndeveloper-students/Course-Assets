@@ -2,14 +2,14 @@
   var toggles, els;
   
   toggles = $('.toggle').on('click', 'button', function () {
-    els.fadeIn(400, function () {
-      toggles.addClass('hidden');
+    els.slideDown(400, function () {
+      toggles.slideUp('hidden');
     });
   });
 
   els = $('.hide-me').on('click', 'button', function () {
-    els.fadeOut(400, function () {
-      toggles.removeClass('hidden');
+    els.slideUp(400, function () {
+      toggles.slideDown('hidden');
     });
   });
 
