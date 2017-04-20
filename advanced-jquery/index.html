@@ -24,6 +24,13 @@
       font-weight: bold;
       text-transform: capitalize;
     }
+
+    .block.special {
+      background: red;
+      width: 400px;
+      height: 200px;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
@@ -64,6 +71,9 @@
   </div>
   <div class="block" data-effect="pulsate">
     <span>pulsate</span>
+  </div>
+  <div class="block" data-effect="addSpecialClass">
+    <span>Add Special Class</span>
   </div>
 </div>
 <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
