@@ -16,6 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "pure": "purecss#^0.6.2"
+    "pure": "purecss#^0.6.2",
+    "handlebars": "^4.0.7",
+    "fetch": "^2.0.3"
   }
 }

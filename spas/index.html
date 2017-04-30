@@ -4,8 +4,55 @@
   <title>Single Page Applications</title>
   <link rel="stylesheet" type="text/css" href="bower_components/pure/build/pure-min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    .container {
+      width: 1000px;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
+<div class="container">
+  <h3>My paginated table</h3>
+  <h4 class="page-counter">Page #<span class="page-num"></span></h4>
+  <table class="pure-table todos">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Task</th>
+        <th>Complete?</th>
+      </tr>
+    </thead>
+    <tbody class="todo-body">
+    </tbody>
+  </table>
+  <button class="pure-button" id="prev-page">
+    Prev Page
+  </button>
+  <button class="pure-button" id="next-page">
+    Next Page
+  </button>
+</div>
+<script type="text/javascript" src="bower_components/fetch/fetch.js"></script>
+<script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
 
+<script id="todo-template" type="text/x-handlebars-template">
+  {{#each todos}}
+  <tr>
+    <td>{{id}}</td>
+    <td>{{title}}</td>
+    <td>
+      {{#if completed}}
+      Yes
+      {{else}}
+      No
+      {{/if}}
+    </td>
+  </tr>
+  {{/each}}
+</script>
+
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
