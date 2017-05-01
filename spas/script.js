@@ -11,7 +11,7 @@
     , curPage
     , pageCounter;
 
-  var render = function (page) {
+  var render = function (page, skipState) {
     if (!page) {
       page = 0;
     }
@@ -48,6 +48,11 @@
     } else {
       nextBtn.removeAttribute('disabled');
     }
+    if (!skipState) {
+      history.pushState({
+        page: page
+      }, "Page " + (page + 1));
+    }
   }
 
   fetch(todoDataUrl)
@@ -56,7 +61,11 @@
     })
     .then(function (data) {
       todos = data;
-      render();
+      if (history.state && history.state.page) {
+        render(history.state.page, true);
+      } else {
+        render();
+      }
     });
 
   nextBtn.addEventListener('click', function () {
@@ -66,4 +75,12 @@
   prevBtn.addEventListener('click', function () {
     render(curPage - 1);
   });
+
+  window.onpopstate = function (ev) {
+    console.log('popped', ev);
+    var state = ev.state
+      , page = state.page;
+
+    render(page, true);
+  }
 })();
