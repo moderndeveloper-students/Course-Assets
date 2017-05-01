@@ -51,7 +51,7 @@
     if (!skipState) {
       history.pushState({
         page: page
-      }, "Page " + (page + 1));
+      }, "Page " + (page + 1), '#' + (page + 1));
     }
   }
 
@@ -61,9 +61,12 @@
     })
     .then(function (data) {
       todos = data;
-      if (history.state && history.state.page) {
+      if (window.location.hash) {
+        var page = window.location.hash.slice(1);
+        render(parseInt(page) - 1, true);
+      } else if (history.state && history.state.page) {
         render(history.state.page, true);
-      } else {
+      } else { 
         render();
       }
     });
@@ -77,7 +80,6 @@
   });
 
   window.onpopstate = function (ev) {
-    console.log('popped', ev);
     var state = ev.state
       , page = state.page;
 
