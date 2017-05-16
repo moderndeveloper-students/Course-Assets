@@ -46,9 +46,9 @@
     }
   }
 
-  var _todos = {};
+  var _todos = false;
   var handleState = function (page, data, skipState) {
-    render(page, _todos[page]);
+    render(page, data);
     if (!skipState) {
       history.pushState({
         page: page
@@ -56,8 +56,9 @@
     }
   }
   var load = function (page, skipState) {
-    if (_todos[page]) {
-      handleState(page, _todos[page], skipState);
+    var data = getData(page);
+    if (data) {
+      handleState(page, data, skipState);
       return;
     }
     fetch(todoDataUrl.replace('$INDEX', page))
@@ -65,9 +66,24 @@
         return response.json()
       })
       .then(function (data) {
-        _todos[page] = data;
         handleState(page, data, skipState);
+        storeData(page, data);
       });
+  }
+
+  var storeData = function (page, data) {
+    // Short-term storage
+    _todos[page] = data;
+    // Long-term storage
+    localStorage.setItem('todos', JSON.stringify(_todos));
+  }
+
+  var getData = function (page) {
+    if (!_todos) {
+      var data = localStorage.getItem('todos');
+      _todos = data ? JSON.parse(data) : {};
+    }
+    return _todos[page] || null;
   }
 
   nextBtn.addEventListener('click', function () {
