@@ -46,18 +46,27 @@
     }
   }
 
+  var _todos = {};
+  var handleState = function (page, data, skipState) {
+    render(page, _todos[page]);
+    if (!skipState) {
+      history.pushState({
+        page: page
+      }, "Page " + (page + 1), '#' + (page + 1));
+    }
+  }
   var load = function (page, skipState) {
+    if (_todos[page]) {
+      handleState(page, _todos[page], skipState);
+      return;
+    }
     fetch(todoDataUrl.replace('$INDEX', page))
       .then(function (response) {
         return response.json()
       })
       .then(function (data) {
-        render(page, data);
-        if (!skipState) {
-          history.pushState({
-            page: page
-          }, "Page " + (page + 1), '#' + (page + 1));
-        }
+        _todos[page] = data;
+        handleState(page, data, skipState);
       });
   }
 
