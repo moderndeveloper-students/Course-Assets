@@ -2,7 +2,7 @@
   var todoTplElement = document.getElementById('todo-template')
     , todoTplString = todoTplElement.innerHTML
     , todoTpl = Handlebars.compile(todoTplString)
-    , todoDataUrl = 'data/todos.json'
+    , todoDataUrl = 'data/todos-$INDEX.json'
     , pageSize = 10
     , nextBtn = document.getElementById('next-page')
     , prevBtn = document.getElementById('prev-page')
@@ -11,13 +11,10 @@
     , curPage
     , pageCounter;
 
-  var render = function (page, skipState) {
+  var render = function (page) {
     if (!page) {
       page = 0;
     }
-    var start = page * pageSize
-      , end = start + pageSize
-      , todosToRender = todos.slice(start, end);
 
     if (!todoEl) {
       var els = document.getElementsByClassName('todo-body');
@@ -36,53 +33,57 @@
       pageCounter = els[0];
     }
     curPage = page;
-    todoEl.innerHTML = todoTpl({todos: todosToRender});
+    todoEl.innerHTML = todoTpl({todos: todos});
     pageCounter.innerHTML = String(page + 1);
     if (!page) {
       prevBtn.setAttribute('disabled', "");
     } else {
       prevBtn.removeAttribute('disabled');
     }
-    if (todosToRender.length < pageSize) {
+    if (todos.length < pageSize) {
       nextBtn.setAttribute('disabled', "");
     } else {
       nextBtn.removeAttribute('disabled');
     }
-    if (!skipState) {
-      history.pushState({
-        page: page
-      }, "Page " + (page + 1), '#' + (page + 1));
-    }
   }
 
-  fetch(todoDataUrl)
-    .then(function (response) {
-      return response.json()
-    })
-    .then(function (data) {
-      todos = data;
-      if (window.location.hash) {
-        var page = window.location.hash.slice(1);
-        render(parseInt(page) - 1, true);
-      } else if (history.state && history.state.page) {
-        render(history.state.page, true);
-      } else { 
-        render();
-      }
-    });
+  var load = function (page, skipState) {
+    fetch(todoDataUrl.replace('$INDEX', page))
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (data) {
+        todos = data;
+        render(page);
+        if (!skipState) {
+          history.pushState({
+            page: page
+          }, "Page " + (page + 1), '#' + (page + 1));
+        }
+      });
+  }
 
   nextBtn.addEventListener('click', function () {
-    render(curPage + 1);
+    load(curPage + 1);
   });
 
   prevBtn.addEventListener('click', function () {
-    render(curPage - 1);
+    load(curPage - 1);
   });
 
   window.onpopstate = function (ev) {
     var state = ev.state
       , page = state.page;
 
-    render(page, true);
+    load(page, true);
+  }
+
+  if (window.location.hash) {
+    var page = window.location.hash.slice(1);
+    load(parseInt(page) - 1, true);
+  } else if (history.state && history.state.page) {
+    load(history.state.page, true);
+  } else { 
+    load(0);
   }
 })();
