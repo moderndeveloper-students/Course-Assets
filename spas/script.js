@@ -6,12 +6,11 @@
     , pageSize = 10
     , nextBtn = document.getElementById('next-page')
     , prevBtn = document.getElementById('prev-page')
-    , todos
     , todoEl
     , curPage
     , pageCounter;
 
-  var render = function (page) {
+  var render = function (page, todos) {
     if (!page) {
       page = 0;
     }
@@ -53,8 +52,7 @@
         return response.json()
       })
       .then(function (data) {
-        todos = data;
-        render(page);
+        render(page, data);
         if (!skipState) {
           history.pushState({
             page: page
