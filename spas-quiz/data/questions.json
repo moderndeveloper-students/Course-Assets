@@ -1,0 +1,91 @@
+[
+  {
+    "id": 1,
+    "quizId": 1,
+    "text": "What does MVC stand for?",
+    "answers": [
+      "Modern Vascilating Chargers",
+      "Model View Controller",
+      "Mega Vader Clan"
+    ]
+  },
+  {
+    "id": 2,
+    "quizId": 1,
+    "text": "What year was Netscape Navigator first released?",
+    "answers": [
+      "1989",
+      "1996",
+      "1994",
+      "2000"
+    ]
+  },
+  {
+    "id": 3,
+    "quizId": 1,
+    "text": "Nintendo has been around since the 19th Century",
+    "answers": [
+      "True",
+      "False"
+    ]
+  },
+  {
+    "id": 4,
+    "quizId": 1,
+    "text": "What year was the first iPhone released?",
+    "answers": [
+      "1999",
+      "2002",
+      "2005",
+      "2007"
+    ]
+  },
+  {
+    "id": 5,
+    "quizId": 2,
+    "text": "What's the country?",
+    "image": "images/germany.jpg",
+    "answers": [
+      "Germany",
+      "Japan",
+      "Colombia",
+      "England"
+    ]
+  },
+  {
+    "id": 6,
+    "quizId": 2,
+    "text": "What's the country?",
+    "image": "images/england.jpg",
+    "answers": [
+      "Germany",
+      "Japan",
+      "Colombia",
+      "England"
+    ]
+  },
+  {
+    "id": 7,
+    "quizId": 2,
+    "text": "What's the country?",
+    "image": "images/colombia.jpg",
+    "answers": [
+      "Germany",
+      "Japan",
+      "Colombia",
+      "England"
+    ]
+  },
+  {
+    "id": 8,
+    "quizId": 2,
+    "text": "What's the country?",
+    "image": "images/japan.jpg",
+    "answers": [
+      "Germany",
+      "Japan",
+      "Colombia",
+      "England"
+    ]
+  }
+]
