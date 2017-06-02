@@ -9,7 +9,7 @@
     {
       path: '*',
       template: 'welcome',
-      handler: 'noop'
+      handler: 'welcome'
     }
   ]
 
@@ -60,6 +60,18 @@
       , tpl = Handlebars.compile(tplString);
 
     return tpl;
+  }
+
+  handlers.welcome = function (hash, done) {
+    fetch('data/quizzes.json')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (quizzes) {
+        done({
+          quizzes: quizzes
+        });
+      });
   }
 
   window.onload = route;
