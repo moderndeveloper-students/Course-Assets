@@ -37,40 +37,7 @@
       "1999",
       "2002",
       "2005",
-      "2007",
-    ]
-  },
-  {
-    "id": 5,
-    "quizId": 2,
-    "text": "Which image is Germany?",
-    "answers": [
-      "images/germany.jpg",
-      "images/japan.jpg",
-      "images/colombia.jpg",
-      "images/england.jpg",
-    ]
-  },
-  {
-    "id": 5,
-    "quizId": 2,
-    "text": "Which image is Germany?",
-    "answers": [
-      "images/germany.jpg",
-      "images/japan.jpg",
-      "images/colombia.jpg",
-      "images/england.jpg",
-    ]
-  },
-  {
-    "id": 5,
-    "quizId": 2,
-    "text": "Which image is Germany?",
-    "answers": [
-      "images/germany.jpg",
-      "images/japan.jpg",
-      "images/colombia.jpg",
-      "images/england.jpg",
+      "2007"
     ]
   },
   {
@@ -79,10 +46,10 @@
     "text": "What's the country?",
     "image": "images/germany.jpg",
     "answers": [
-      "germany",
-      "japan",
-      "colombia",
-      "england"
+      "Germany",
+      "Japan",
+      "Colombia",
+      "England"
     ]
   },
   {
@@ -91,10 +58,10 @@
     "text": "What's the country?",
     "image": "images/england.jpg",
     "answers": [
-      "germany",
-      "japan",
-      "colombia",
-      "england"
+      "Germany",
+      "Japan",
+      "Colombia",
+      "England"
     ]
   },
   {
@@ -103,10 +70,10 @@
     "text": "What's the country?",
     "image": "images/colombia.jpg",
     "answers": [
-      "germany",
-      "japan",
-      "colombia",
-      "england"
+      "Germany",
+      "Japan",
+      "Colombia",
+      "England"
     ]
   },
   {
@@ -115,10 +82,10 @@
     "text": "What's the country?",
     "image": "images/japan.jpg",
     "answers": [
-      "germany",
-      "japan",
-      "colombia",
-      "england"
+      "Germany",
+      "Japan",
+      "Colombia",
+      "England"
     ]
   }
 ]
