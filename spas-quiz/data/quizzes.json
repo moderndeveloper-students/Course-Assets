@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "How well do you know your tech?",
+    "image": "http://lorempixel.com/640/480/technics"
+  },
+  {
+    "id": 2,
+    "title": "Guess the location",
+    "image": "http://lorempixel.com/640/480/travel"
+  },
+]

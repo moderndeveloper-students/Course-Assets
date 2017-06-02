@@ -1,0 +1,23 @@
+{
+  "name": "spas",
+  "homepage": "https://github.com/moderndeveloper-students/Course-Assets",
+  "authors": [
+    "Alex Vanston <alex@mrvdot.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pure": "purecss#^0.6.2",
+    "handlebars": "^4.0.7",
+    "fetch": "^2.0.3"
+  }
+}
