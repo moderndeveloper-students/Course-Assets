@@ -55,6 +55,23 @@
     }
   }
 
+  var navigate = function (path, skipPush) {
+    var route = match(path);
+
+    if (!route) {
+      throw 'No route found matching "' + path + '"';
+    }
+
+    if (!skipPush) {
+      history.pushState({
+        route: route,
+        path: path
+      }, route.template, '#' + path);
+    }
+
+    render(route, path);
+  }
+
   var getTemplate = function (tplName) {
     var tplElement = document.getElementById(tplName + '-template')
       , tplString = tplElement.innerHTML
@@ -120,5 +137,13 @@
 
   window.onload = route;
 
-  window.onpopstate = route;
+  window.onpopstate = function (ev) {
+    if (ev.state) {
+      var path = ev.state.path;
+    } else {
+      var hash = window.location.hash
+        , path = hash.slice(1);
+    }
+    navigate(path, true);
+  };
 })();
