@@ -119,4 +119,6 @@
   }
 
   window.onload = route;
+
+  window.onpopstate = route;
 })();
