@@ -15,11 +15,13 @@
 
     .image img { width: 100%; }
 
+    .answers {
+      padding-left: 1rem;
+    }
+
     .answers label {
       display: block;
-      margin-left: 1rem;
       margin-bottom: 1rem;
-      text-transform: capitalize;
     }
   }
 }

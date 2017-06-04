@@ -49,7 +49,7 @@
       <div class="answers">
         {{#each answers}}
         <label>
-          <input type="radio" name="answer-{{../id}}">
+          <input type="radio" name="answer-{{../id}}" value="{{.}}">
           {{.}}
         </label>
         {{/each}}
@@ -57,7 +57,29 @@
     </div>
   {{/each}}
   </form>
-  <button>Submit</button>
+  <button id="submit-quiz">Submit</button>
+</script>
+
+<script id="results-template" type="text/x-handlebars-template">
+  <h2>You scored a {{percent}}% on "{{quiz.title}}"!</h2>
+  {{#each questions}}
+  <div class="question{{#if image}} has-image{{/if}}">
+    <h3>{{text}}</h3>
+    {{#if image}}
+    <div class="image">
+      <img src="{{image}}">
+    </div>
+    {{/if}}
+    <div class="answers">
+      <p>Correct Answer: {{correctAnswer}}</p>
+      {{#if correct}}
+      <p>You were right!</p>
+      {{else}}
+      <p>You answered: {{userAnswer.answer}}</p>
+      {{/if}}
+    </div>
+  </div>
+  {{/each}}
 </script>
 </body>
 </html>

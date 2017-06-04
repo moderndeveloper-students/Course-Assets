@@ -14,8 +14,8 @@
     width: 50%; }
   .question.has-image .image img {
     width: 100%; }
+  .question.has-image .answers {
+    padding-left: 1rem; }
   .question.has-image .answers label {
     display: block;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-    text-transform: capitalize; }
+    margin-bottom: 1rem; }

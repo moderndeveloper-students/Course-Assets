@@ -7,6 +7,11 @@
       handler: 'quiz'
     },
     {
+      path: 'results',
+      template: 'results',
+      handler: 'results'
+    },
+    {
       path: '*',
       template: 'welcome',
       handler: 'welcome'
@@ -49,7 +54,7 @@
     return defaultRoute;
   }
 
-  var render = function (route, hash) {
+  var render = function (route, hash, data) {
     var tpl = getTemplate(route.template)
       , handler = handlers[route.handler];
     if (!handler) {
@@ -57,11 +62,11 @@
     } else {
       handler(hash, function (data) {
         viewContent.innerHTML = tpl(data);
-      });
+      }, data);
     }
   }
 
-  var navigate = function (path, skipPush) {
+  var navigate = function (path, skipPush, data) {
     var route = match(path);
 
     if (!route) {
@@ -76,7 +81,7 @@
       }, route.template, '#' + path);
     }
 
-    render(route, path);
+    render(route, path, data);
   }
 
   var getTemplate = function (tplName) {
@@ -120,6 +125,27 @@
 
     var data = {};
 
+    var bindToSubmit = function () {
+      var quiz = data.quiz
+        , questions = data.questions
+        , btn = document.getElementById('submit-quiz');
+      btn.addEventListener('click', function () {
+        var form = document.quiz // get form by name
+          , answers = [];
+        for (var i = 0, ii = questions.length; i < ii; i++) {
+          var q = questions[i]
+            , questionId = q.id
+            , answer = form['answer-' + questionId].value;
+
+          answers.push({
+            question: q,
+            answer: answer
+          });
+        }
+        navigate('results', false, { quiz: quiz, answers: answers, questions: questions })
+      });
+    }
+
     fetch('data/quizzes.json')
       .then(function (response) {
         return response.json();
@@ -134,6 +160,7 @@
         }
         if (data.questions) {
           done(data);
+          bindToSubmit();
         }
       });
 
@@ -151,7 +178,44 @@
         }
         if (data.quiz) {
           done(data);
+          bindToSubmit();
         }
+      });
+  }
+
+  handlers.results = function (hash, done, data) {
+    if (!data) {
+      error('Results page can only be loaded from a submitted quiz');
+      return;
+    }
+
+    fetch('data/answers.json')
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (answers) {
+        var questions = data.questions
+          , userAnswers = data.answers
+          , total = questions.length
+          , correct = 0;
+
+        // Augment question data with correct answer info
+        for (var i = 0, ii = total; i < ii; i++) {
+          var question = questions[i];
+
+          question.correctAnswer = answers[question.id];
+          question.userAnswer = _.find(userAnswers, function (a) {
+            return a.question.id == question.id
+          });
+
+          question.correct = question.correctAnswer == question.userAnswer.answer;
+          if (question.correct) {
+            correct++;
+          }
+        }
+
+        data.percent = (correct / total) * 100;
+        done(data);
       });
   }
 
