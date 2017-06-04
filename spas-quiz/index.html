@@ -37,19 +37,26 @@
 
 <script id="quiz-template" type="text/x-handlebars-template">
   <h2>{{quiz.title}}</h2>
-  {{#each questions}}
-  <div class="question">
-    <h3>{{text}}</h3>
-    <div class="answers">
-      {{#each answers}}
-      <label>
-        <input type="radio" name="answer-{{../id}}">
-        {{.}}
-      </label>
-      {{/each}}
+  <form name="quiz">
+    {{#each questions}}
+    <div class="question{{#if image}} has-image{{/if}}">
+      <h3>{{text}}</h3>
+      {{#if image}}
+      <div class="image">
+        <img src="{{image}}">
+      </div>
+      {{/if}}
+      <div class="answers">
+        {{#each answers}}
+        <label>
+          <input type="radio" name="answer-{{../id}}">
+          {{.}}
+        </label>
+        {{/each}}
+      </div>
     </div>
-  </div>
   {{/each}}
+  </form>
   <button>Submit</button>
 </script>
 </body>

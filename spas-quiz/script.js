@@ -17,13 +17,19 @@
     noop: function () {}
   };
 
+  var error = function (message) {
+    console.warn(message);
+    navigate('/');
+  }
+
   var route = function () {
     var hash = window.location.hash
       , path = hash.slice(1)
       , selectedRoute = match(path);
 
     if (!selectedRoute) {
-      throw 'No route found matching "' + hash + '"';
+      error('No route found matching "' + hash + '"');
+      return;
     }
 
     render(selectedRoute, path);
@@ -55,6 +61,24 @@
     }
   }
 
+  var navigate = function (path, skipPush) {
+    var route = match(path);
+
+    if (!route) {
+      error('No route found matching "' + path + '"');
+      return;
+    }
+
+    if (!skipPush) {
+      history.pushState({
+        route: route,
+        path: path
+      }, route.template, '#' + path);
+    }
+
+    render(route, path);
+  }
+
   var getTemplate = function (tplName) {
     var tplElement = document.getElementById(tplName + '-template')
       , tplString = tplElement.innerHTML
@@ -72,6 +96,16 @@
         done({
           quizzes: quizzes
         });
+        var quizElements = document.getElementsByClassName('quiz');
+        for (var i = 0, ii = quizElements.length; i < ii; i++) {
+          var el = quizElements[i];
+
+          el.addEventListener('click', function (ev) {
+            var target = ev.currentTarget
+              , quizId = target.getAttribute('data-id')
+            navigate('quiz/' + quizId);
+          });
+        }
       });
   }
 
@@ -80,7 +114,8 @@
       , quizId = hashParts[1] || false;
 
     if (!quizId) {
-      throw 'Invalid route, quiz must have id';
+      error('Invalid route, quiz must have id');
+      return;
     }
 
     var data = {};
@@ -94,7 +129,8 @@
           return q.id == quizId;
         });
         if (!data.quiz) {
-          throw 'Unable to find quiz matching id ' + quizId;
+          error('Unable to find quiz matching id ' + quizId);
+          return;
         }
         if (data.questions) {
           done(data);
@@ -110,7 +146,8 @@
           return q.quizId == quizId;
         });
         if (!data.questions) {
-          throw 'Unable to find questions for quiz ' + quizId;
+          error('Unable to find questions for quiz ' + quizId);
+          return;
         }
         if (data.quiz) {
           done(data);
@@ -120,5 +157,13 @@
 
   window.onload = route;
 
-  window.onpopstate = route;
+  window.onpopstate = function (ev) {
+    if (ev.state) {
+      var path = ev.state.path;
+    } else {
+      var hash = window.location.hash
+        , path = hash.slice(1);
+    }
+    navigate(path, true);
+  };
 })();

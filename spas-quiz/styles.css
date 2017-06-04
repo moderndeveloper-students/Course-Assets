@@ -4,3 +4,18 @@
   box-shadow: 0 0 1px 2px gray; }
   .quiz h3 {
     text-align: center; }
+
+.question {
+  overflow: hidden;
+  margin-bottom: 1rem; }
+  .question.has-image .answers,
+  .question.has-image .image {
+    float: left;
+    width: 50%; }
+  .question.has-image .image img {
+    width: 100%; }
+  .question.has-image .answers label {
+    display: block;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize; }
