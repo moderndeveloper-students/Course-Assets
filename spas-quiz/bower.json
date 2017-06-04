@@ -18,6 +18,7 @@
   "dependencies": {
     "pure": "purecss#^0.6.2",
     "handlebars": "^4.0.7",
-    "fetch": "^2.0.3"
+    "fetch": "^2.0.3",
+    "underscore": "^1.8.3"
   }
 }
