@@ -19,6 +19,7 @@
 </div>
 <script type="text/javascript" src="bower_components/fetch/fetch.js"></script>
 <script type="text/javascript" src="bower_components/handlebars/handlebars.js"></script>
+<script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
 
 <script type="text/javascript" src="script.js"></script>
 
@@ -32,6 +33,31 @@
     </div>
     {{/each}}
   </div>
+</script>
+
+<script id="quiz-template" type="text/x-handlebars-template">
+  <h2>{{quiz.title}}</h2>
+  <form name="quiz">
+    {{#each questions}}
+    <div class="question{{#if image}} has-image{{/if}}">
+      <h3>{{text}}</h3>
+      {{#if image}}
+      <div class="image">
+        <img src="{{image}}">
+      </div>
+      {{/if}}
+      <div class="answers">
+        {{#each answers}}
+        <label>
+          <input type="radio" name="answer-{{../id}}" value="{{.}}">
+          {{.}}
+        </label>
+        {{/each}}
+      </div>
+    </div>
+  {{/each}}
+  </form>
+  <button>Submit</button>
 </script>
 </body>
 </html>

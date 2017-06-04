@@ -4,7 +4,7 @@
     {
       path: 'quiz',
       template: 'quiz',
-      handler: 'noop'
+      handler: 'quiz'
     },
     {
       path: '*',
@@ -19,13 +19,14 @@
 
   var route = function () {
     var hash = window.location.hash
-      , selectedRoute = match(hash);
+      , path = hash.slice(1)
+      , selectedRoute = match(path);
 
     if (!selectedRoute) {
       throw 'No route found matching "' + hash + '"';
     }
 
-    render(selectedRoute, hash);
+    render(selectedRoute, path);
   }
 
   var match = function (path) {
@@ -71,6 +72,49 @@
         done({
           quizzes: quizzes
         });
+      });
+  }
+
+  handlers.quiz = function (hash, done) {
+    var hashParts = hash.split('/')
+      , quizId = hashParts[1] || false;
+
+    if (!quizId) {
+      throw 'Invalid route, quiz must have id';
+    }
+
+    var data = {};
+
+    fetch('data/quizzes.json')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (quizzes) {
+        data.quiz = _.find(quizzes, function (q) {
+          return q.id == quizId;
+        });
+        if (!data.quiz) {
+          throw 'Unable to find quiz matching id ' + quizId;
+        }
+        if (data.questions) {
+          done(data);
+        }
+      });
+
+    fetch('data/questions.json')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (questions) {
+        data.questions = _.filter(questions, function (q) {
+          return q.quizId == quizId;
+        });
+        if (!data.questions) {
+          throw 'Unable to find questions for quiz ' + quizId;
+        }
+        if (data.quiz) {
+          done(data);
+        }
       });
   }
 
