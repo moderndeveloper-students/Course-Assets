@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plain JS Minimal App: Update</title>
+  <script src="src/c/initialize.js"></script>
+  <script src="src/m/LearningUnit.js"></script>
+  <script src="src/v/updateLearningUnit.js"></script>
+  <script>
+   window.addEventListener("load", vt.v.updateLearningUnit.setupUserInterface);
+  </script>
+</head>
+<body>
+ <header>
+  <h1>Foreign Language Vocabulary Training</h1>
+  <h2>Update a learning unit record</h2>
+ </header>
+ <main>
+  <form id="LearningUnit">
+    <p>
+      <label>Select learning unit: 
+        <select name="selectLearningUnit"><option value=""> --- </option></select>
+      </label>
+    </p>
+    <p><label>Learning unit number: <output name="learnUnitNo" /></label></p>
+    <p><label>Title: <input name="title" /></label></p>
+    <p><label>Description:<br/>
+        <textarea id="descr" name="description"></textarea></label></p>
+    <p><button type="button" name="commit">Save Changes</button></p>
+  </form>
+ </main>
+ <footer>
+   <p><a href="index.html">Back to main menu</a></p>
+ </footer>
+</body>
+</html>

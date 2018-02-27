@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Plain JS Minimal App</title>
+  <meta name="description" content="An app for training the vocabulary of a foreign language.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="css/normalize.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="src/c/initialize.js"></script>
+  <script src="src/m/LearningUnit.js"></script>
+</head>
+<body>
+ <header>
+  <div class="wrapper clearfix">
+    <div class="title">
+     <h1>Foreign Language Vocabulary Training</h1>
+      <h2>A Minimal Plain JavaScript App with CSS Styling</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="createLearningUnit.html" title="Create">C</a></li>
+        <li><a href="retrieveAndListAllLearningUnits.html" title="Retrieve">R</a></li>
+        <li><a href="updateLearningUnit.html" title="Update">U</a></li>
+        <li><a href="deleteLearningUnit.html" title="Delete">D</a></li>
+      </ul>
+    </nav>
+  </div>
+ </header>
+ <main>
+  <div class="wrapper clearfix">
+	<p>This is the 1st example app of the Modern Developer course <a>Architecting-Modern-Frontend-Web-Applications</a>.
+	The app supports the following operations:</p>
+   <div class="two-col-menu">
+     <menu class="crud">
+      <li><a href="createLearningUnit.html"><button type="button">Create</button></a> a new learning unit record</li>
+      <li><a href="retrieveAndListAllLearningUnits.html"><button type="button">Retrieve</button></a> and list all learning unit records</li>
+      <li><a href="updateLearningUnit.html"><button type="button">Update</button></a> a learning unit record</li>
+      <li><a href="deleteLearningUnit.html"><button type="button">Delete</button></a> a learning unit record</li>
+     </menu>
+     <menu>
+      <li><button type="button" onclick="vt.m.LearningUnit.createTestData()">Generate</button> test data</li>
+      <li><button type="button" onclick="vt.m.LearningUnit.clearData()">Clear</button> database</li>
+     </menu>
+   </div>
+    <p>For playing with the app, you may first want to <button type="button" onclick="vt.m.LearningUnit.createTestData()">Generate test data</button>
+	 and then view it with <a href="retrieveAndListAllLearningUnits.html"><button type="button">Retrieve and list all learning units</button></a>.
+     For observing the internal status and error messages, turn on the JavaScript console.</p>
+    <p>This minimal version of our JavaScript front-end data management application only includes a minimum of the overall functionality
+     required for a complete app. It takes care of only one object type ("learning units") and supports the four
+     standard data management operations (<strong>C</strong>reate/<strong>R</strong>etrieve/<strong>U</strong>pdate/<strong>D</strong>elete),
+     but it needs to be enhanced by styling the user interface with CSS and by adding further important parts
+     of the app's overall functionality.</p>
+  </div>
+ </main>
+ <footer>
+  <div class="foot-content wrapper">
+   <p>Copyright © 2017 Bov Academy. The code of this tutorial web app is licensed under
+    <a rel="license" href="http://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>,
+    implying that the code is provided "as-is", can be modified to create derivative works, can be redistributed,
+    and can be used in commercial applications, but the associated article must not be distributed or republished
+    without the consent of Bov Academy.
+   </p>
+  </div>
+ </footer>
+</body>

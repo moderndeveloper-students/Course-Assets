@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Plain JS Minimal App: Retrieve</title>
+    <script src="src/c/initialize.js"></script>
+    <script src="src/m/LearningUnit.js"></script>
+    <script src="src/v/retrieveAndListAllLearningUnits.js"></script>
+    <script>
+      window.addEventListener("load",
+          vt.v.retrieveAndListAllLearningUnits.setupUserInterface);
+    </script>
+  </head>
+<body>
+ <header>
+  <h1>Foreign Language Vocabulary Training</h1>
+  <h2>Retrieve and list all learning unit records</h2>
+ </header>
+ <main>
+  <table id="learning_units">
+   <thead><tr><th>No</th><th>Title</th><th>Description</th></tr></thead>
+   <tbody></tbody>
+  </table>
+ </main>
+ <footer>
+  <p><a href="index.html">Back to main menu</a></p>
+ </footer>
+</body>
+</html>

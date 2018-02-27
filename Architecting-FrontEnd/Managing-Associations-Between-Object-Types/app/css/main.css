@@ -1,0 +1,436 @@
+/*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ===== Initializr Styles ==================================================
+   Person: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+   ========================================================================== */
+
+body {
+    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+/* ===================
+    ALL: Orange Theme
+   =================== */
+
+:root {  /* pseudo-class used for variable definitions */
+    --light-bg-color: #f16529;
+    --dark-bg-color: #e44d26;
+}
+
+header {
+    border-bottom: 20px solid var(--dark-bg-color);
+}
+
+footer {
+    border-top: 20px solid var(--dark-bg-color);
+}
+
+header,
+footer {
+    background: var(--light-bg-color);
+}
+
+header .title {
+    color: white;
+}
+
+/* ==============
+    MOBILE: Menu
+   ============== */
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background: var(--dark-bg-color);
+}
+
+nav a:hover,
+nav a:visited {
+    color: white;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ==============
+    MOBILE: Main
+   ============== */
+
+main {
+    padding: 30px 0;
+}
+footer div.foot-content {
+    color: white;
+    padding: 20px 0;
+}
+
+/* ==========================================================================
+   Person's custom styles
+   ========================================================================== */
+footer div.foot-content {
+    font-size: smaller;
+    /' margin: 2em auto; */
+}
+footer div.foot-content a {
+    color: white;
+}
+
+table {
+    border-collapse:collapse;
+    margin: 1em 0;
+}
+table, td, th {
+    border: 1px solid black;
+    padding: 5px;
+}
+table th {
+    background: aliceblue;
+}
+
+menu {
+    width: 20em;
+    text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 5px;
+}
+main div.two-col-menu menu {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    margin-left: 3em;
+}
+menu li {
+    list-style: none;
+    height: 1.5em;
+    margin: 0.5em auto;
+}
+main div.two-col-menu menu > li {
+    /* height: 1.5em; */
+    margin: 3px 0;
+}
+menu li button {
+    width: 20em;
+}
+main div.two-col-menu menu button {
+    width: 5em;
+}
+
+form :invalid {
+    box-shadow: none;  /* neutralizing FF */
+    outline: dotted red;
+}
+form > div  {
+    margin-bottom: 0.7em;
+}
+form > div.multi-sel  {
+    margin-bottom: 3.5em;
+}
+form > div > label {
+    display: block;     /* by default, one labeled control per line*/
+}
+form > div.field-group > label {
+    display: inline-block;
+}
+form > div > label {
+    position: relative;
+    margin: 0 0 5px 0;
+    width: 40em;
+}
+form > div > label > input[type="text"],
+form > div > label > textarea,
+form > div > label > input[type="checkbox"],
+form > div > label > select,
+form > div > label > div.MultiChoiceWidget,
+form > div > label > output {
+    position: absolute;
+    left: 11em;
+}
+/* the height of multi-line elements must be limited */
+form > div.select-many {
+    height: 6em;
+}
+form > div.widget {
+    height: 11em;
+}
+
+form > div > button {
+    margin-right: 0.5em;
+}
+
+form > fieldset {
+    margin-bottom: 1em;
+}
+form > fieldset > label {
+    margin-right: 1em;
+}
+form > fieldset > label > input[type="radio"],
+form > fieldset > label > input[type="checkbox"] {
+    margin-right: 0.5em;
+}
+
+/*  Multiple Choice Widget */
+form div.MultiChoiceWidget {
+    outline: solid grey 1px;
+    padding: 5px;
+    max-width: 30em;
+    max-height: 10em;  /* of the widget container */
+}
+form div.MultiChoiceWidget > ul {
+    padding-left: 8px;
+    margin-top: 0;
+    list-style-type:none;
+}
+form div.MultiChoiceWidget > ul > li {
+    width: 100%;
+    clear: right;
+}
+form div.MultiChoiceWidget > ul > li > button {
+    float: right;
+    margin-left: 0.5em;
+    font-size: 70%;
+    /* vertical-align: middle; */
+}
+form div.MultiChoiceWidget > ul > li.removed {
+    color: red;
+    text-decoration: line-through;
+}
+form div.MultiChoiceWidget > ul > li.added {
+    color: green;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+
+    /* ====================
+        INTERMEDIATE: Menu
+       ==================== */
+    nav a {
+        float: left;
+        width: 6em;
+        height: 3em;
+        margin: 0 1.7%;
+        padding: 25px 2%;
+    }
+    nav li:first-child a {
+        margin-left: 0;
+    }
+    nav li:last-child a {
+        margin-right: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+/* ====================
+   WIDE: CSS3 Effects
+   ==================== */
+   header {
+       -webkit-box-shadow: 0 5px 10px #aaa;
+          -moz-box-shadow: 0 5px 10px #aaa;
+               box-shadow: 0 5px 10px #aaa;
+   }
+/* ============
+   WIDE: Menu
+   ============ */
+   .title {
+       float: left;
+   }
+   nav {
+       float: right;
+       width: 38%;
+   }
+/* ============
+   WIDE: Main
+   ============ */
+   main article {
+       float: left;
+       width: 57%;
+   }
+}
+
+@media only screen and (min-width: 1140px) {
+
+/* ===============
+    Maximal Width
+   =============== */
+
+    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    img {
+        max-width: 100% !important;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

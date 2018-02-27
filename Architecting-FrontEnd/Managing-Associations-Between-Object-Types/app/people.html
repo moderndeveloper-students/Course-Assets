@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Unidirectional Association App: Manage People</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="stylesheet" href="css/normalize.min.css"/>
+  <link rel="stylesheet" href="css/main.css"/>
+
+  <script src="lib/browserShims.js"></script>
+  <script src="lib/util.js"></script>
+  <script src="lib/errorTypes.js"></script>
+  <script src="src/c/app.js"></script>
+  <script src="src/m/Person.js"></script>
+  <script src="src/m/TranslationProblem.js"></script>
+  <script src="src/m/LearningUnit.js"></script>
+  <script src="src/c/people.js"></script>
+  <script src="src/v/people.js"></script>
+  <script>
+    window.addEventListener("load", vt.c.people.manage.initialize);
+  </script>
+</head>
+<body>
+<header>
+    <div class="wrapper clearfix">
+        <div class="title">
+            <h1>Foreign Language Vocabulary Training</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="people.html">People</a></li>
+                <li><a href="translation-problems.html">Translation Problems</a></li>
+                <li><a href="learning-units.html">Learning Units</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="wrapper clearfix">
+<!-- ======================================================= -->
+  <section id="Person-M" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Manage people</h1>
+    <menu>
+      <li><button type="button" onclick="vt.v.people.retrieveAndListAll.setupUserInterface()">
+	   Retrieve and list all person records</button></li>
+      <li><button type="button" onclick="vt.v.people.create.setupUserInterface()">
+	   Create a new person record</button></li>
+      <li><button type="button" onclick="vt.v.people.update.setupUserInterface()">
+	   Update a person record</button></li>
+      <li><button type="button" onclick="vt.v.people.destroy.setupUserInterface()">
+	   Delete a person record</button></li>
+    </menu>
+    <div class="button"><a href="index.html">Back to Main menu</a></div>
+  </section>
+<!-- ======================================================= -->
+  <section id="Person-R" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Retrieve and list all people</h1>
+    <table>
+      <thead><tr><th>ID</th><th>Name</th></thead>
+      <tbody></tbody>
+    </table>
+    <div class="button">
+      <button type="button" onclick="vt.v.people.manage.refreshUI()">Back to menu</button>
+    </div>
+  </section>
+<!-- ======================================================= -->
+  <section id="Person-C" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Create a new person record</h1>
+    <form>
+      <div class="field">
+        <label>ID: <input type="text" name="personId" /></label>
+      </div>
+      <div class="field">
+        <label>Name: <input type="text" name="name" /></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Save</button>
+        <button type="button" onclick="vt.v.people.manage.refreshUI()">Back to menu</button>
+      </div>
+    </form>
+  </section>
+<!-- ======================================================= -->
+  <section id="Person-U" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Update a person record</h1>
+    <form>
+      <div class="select-one">
+        <label>Select person: <select name="selectPerson"></select></label>
+      </div>
+      <div class="field">
+        <label>ID: <output name="personId"/></label>
+      </div>
+      <div class="field">
+        <label>Name: <input type="text" name="name" /></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Save changes</button>
+        <button type="button" onclick="vt.v.people.manage.refreshUI()">Back to menu</button>
+      </div>
+    </form>
+  </section>
+<!-- ======================================================= -->
+  <section id="Person-D" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Delete a person record</h1>
+    <form>
+      <div class="select-one">
+        <label>Select person: <select name="selectPerson"></select></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Delete</button>
+        <button type="button" onclick="vt.v.people.manage.refreshUI()">Back to menu</button>
+      </div>
+    </form>
+  </section>
+  </div>
+</main>
+<footer>
+  <div class="foot-content wrapper">
+     Copyright © 2017 Bov Academy,
+     <a rel="license" href="http://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>.
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+ <title>Unidirectional Association App: Manage Translation Problems</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+ <link rel="stylesheet" href="css/normalize.min.css"/>
+ <link rel="stylesheet" href="css/main.css"/>
+
+ <script src="lib/browserShims.js"></script>
+ <script src="lib/util.js"></script>
+ <script src="lib/errorTypes.js"></script>
+ <script src="src/c/app.js"></script>
+ <script src="src/m/TranslationProblem.js"></script>
+ <script src="src/m/Person.js"></script>
+ <script src="src/m/LearningUnit.js"></script>
+ <script src="src/v/translation-problems.js"></script>
+ <script src="src/c/translation-problems.js"></script>
+ <script>
+   window.addEventListener("load", vt.c.translationProblems.manage.initialize);
+ </script>
+</head>
+<body>
+ <header>
+  <div class="wrapper clearfix">
+   <div class="title">
+    <h1>Foreign Language Vocabulary Training</h1>
+   </div>
+   <nav>
+    <ul>
+     <li><a href="people.html">People</a></li>
+     <li><a href="translation-problems.html">Translation Problems</a></li>
+     <li><a href="learning-units.html">Learning Units</a></li>
+    </ul>
+   </nav>
+  </div>
+</header>
+<main>
+    <div class="wrapper clearfix">
+<!-- ======================================================= -->
+  <section id="TranslationProblem-M" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Manage translation problems</h1>
+    <menu>
+      <li><button type="button" onclick="vt.v.translationProblems.retrieveAndListAll.setupUserInterface()">Retrieve and list all translation problems</button></li>
+      <li><button type="button" onclick="vt.v.translationProblems.create.setupUserInterface()">Create a new translation problem</button></li>
+      <li><button type="button" onclick="vt.v.translationProblems.update.setupUserInterface()">Update a translation problem</button></li>
+      <li><button type="button" onclick="vt.v.translationProblems.destroy.setupUserInterface()">Delete a translation problem</button></li>
+    </menu>
+    <div class="button"><a href="index.html">Back to Main menu</a></div>
+  </section>
+<!-- ======================================================= -->
+  <section id="TranslationProblem-R" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Retrieve and list all translation problems</h1>
+    <table>
+      <thead><tr><th>Source Term/Phrase</th><th>Target Terms/Phrases</th></thead>
+      <tbody></tbody>
+    </table>
+    <div class="button">
+      <button type="button" onclick="vt.v.translationProblems.manage.refreshUI()">Back to menu</button>
+    </div>
+  </section>
+<!-- ======================================================= -->
+  <section id="TranslationProblem-C" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Create a new translation problem</h1>
+    <form>
+      <div class="field">
+        <label>Source term/phrase: <input type="text" name="source" /></label>
+      </div>
+      <div class="field">
+        <label>Target terms/phrases: <input type="text" name="targets" placeholder="Ex: el cuarto; el dormitorio" /></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Save</button>
+        <button type="button" onclick="vt.v.translationProblems.manage.refreshUI()">Back to menu</button>
+      </div>
+    </form>
+  </section>
+<!-- ======================================================= -->
+  <section id="TranslationProblem-U" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Update a translation problem</h1>
+    <form>
+      <div class="select-one">
+        <label>Select problem: <select name="selectTranslationProblem"></select></label>
+      </div>
+      <div class="field">
+        <label>Source term/phrase: <output name="source"/></label>
+      </div>
+      <div class="field">
+          <label>Target terms/phrases: <input type="text" name="targets" placeholder="el cuarto; el dormitorio; la recámara" /></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Save</button>
+        <button type="button" onclick="vt.v.translationProblems.manage.refreshUI()">Back to menu</button>
+      </div>
+    </form>
+  </section>
+<!-- ======================================================= -->
+  <section id="TranslationProblem-D" class="UI-Page">
+<!-- ======================================================= -->
+    <h1>Delete a translation problem</h1>
+    <form>
+      <div class="select-one">
+        <label>Select problem: <select name="selectTranslationProblem"></select></label>
+      </div>
+      <div class="button-group">
+        <button type="submit" name="commit">Delete</button>
+        <button type="button" onclick="vt.v.translationProblems.manage.refreshUI()">Back to menu</button>
+      </div>
+    </form>
+  </section>
+ </div>
+</main>
+<footer>
+    <div class="foot-content wrapper">
+        Copyright © 2015-2017 Gerd Wagner,
+        <a rel="license" href="http://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a>.
+    </div>
+</footer>
+</body>
+</html>
