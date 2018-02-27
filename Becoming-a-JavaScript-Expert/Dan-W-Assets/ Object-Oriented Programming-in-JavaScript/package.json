@@ -1,0 +1,20 @@
+{
+  "name": "ooj2-app",
+  "version": "1.0.0",
+  "description": "An example OOJ app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start --server --files \"app\" --no-notify --no-online"
+  },
+  "author": "Dan Wellman for Bov Academy",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "systemjs": "^0.20.12",
+    "systemjs-plugin-babel": "0.0.21"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.12"
+  }
+}

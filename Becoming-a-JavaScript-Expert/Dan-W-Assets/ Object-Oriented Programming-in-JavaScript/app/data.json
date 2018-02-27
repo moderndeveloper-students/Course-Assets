@@ -1,0 +1,157 @@
+﻿{
+  "vans": [
+    {
+      "license": "ABC-4567",
+      "capacity": "235ft2",
+      "refrigerated": true,
+      "location": {
+        "lat": 50.899014,
+        "lng": -1.355095
+      }
+    },
+    {
+      "license": "DEF-8901",
+      "capacity": "600ft2",
+      "location": {
+        "lat": 50.918991,
+        "lng": -1.441441
+      }
+    },
+    {
+      "license": "GHI-2345",
+      "capacity": "1200ft2",
+      "location": {
+        "lat": 50.938034,
+        "lng": -1.435604
+      }
+    },
+    {
+      "license": "JKL-6789",
+      "capacity": "1200ft2",
+      "refrigerated": true,
+      "location": {
+        "lat": 50.928730,
+        "lng": -1.376553
+      }
+    },
+    {
+      "license": "MNO-0123",
+      "capacity": "600ft2",
+      "location": {
+        "lat": 50.892145,
+        "lng": -1.377926
+      }
+    },
+    {
+      "license": "PQR-4567",
+      "capacity": "1200ft2",
+      "location": {
+        "lat": 50.917692,
+        "lng": -1.396465
+      }
+    },
+    {
+      "license": "STU-8901",
+      "capacity": "1200ft2",
+      "location": {
+        "lat": 50.904271,
+        "lng": -1.392002
+      }
+    },
+    {
+      "license": "VWX-2345",
+      "capacity": "235ft2",
+      "location": {
+        "lat": 50.922454,
+        "lng": -1.384792
+      }
+    },
+    {
+      "license": "YZA-6789",
+      "capacity": "600ft2",
+      "refrigerated": true,
+      "location": {
+        "lat": 50.914879,
+        "lng": -1.399899
+      }
+    }
+  ],
+  "motorbikes": [
+    {
+      "license": "ZYX-9876",
+      "capacity": "2ft2",
+      "secureDocumentStorage": true,
+      "location": {
+        "lat": 50.916610,
+        "lng": -1.410198
+      }
+    },
+    {
+      "license": "WVU-5432",
+      "capacity": "1ft2",
+      "location": {
+        "lat": 50.936519,
+        "lng": -1.388226
+      }
+    },
+    {
+      "license": "TSR-1098",
+      "capacity": "1ft2",
+      "secureDocumentStorage": true,
+      "location": {
+        "lat": 50.924402,
+        "lng": -1.345654
+      }
+    },
+    {
+      "license": "QPO-7654",
+      "capacity": "3ft2",
+      "secureDocumentStorage": true,
+      "location": {
+        "lat": 50.900807,
+        "lng": -1.337070
+      }
+    },
+    {
+      "license": "NML-3210",
+      "capacity": "2ft2",
+      "location": {
+        "lat": 50.916827,
+        "lng": -1.442471
+      }
+    },
+    {
+      "license": "KJI-9876",
+      "capacity": "3ft2",
+      "location": {
+        "lat": 50.916316,
+        "lng": -1.357241
+      }
+    },
+    {
+      "license": "HGF-5432",
+      "capacity": "2ft2",
+      "location": {
+        "lat": 50.932625,
+        "lng": -1.459293
+      }
+    },
+    {
+      "license": "EDC-1098",
+      "capacity": "1ft2",
+      "secureDocumentStorage": true,
+      "location": {
+        "lat": 50.908168,
+        "lng": -1.420155
+      }
+    },
+    {
+      "license": "BAZ-7654",
+      "capacity": "4ft2",
+      "location": {
+        "lat": 50.936519,
+        "lng": -1.417065
+      }
+    }
+  ]
+}

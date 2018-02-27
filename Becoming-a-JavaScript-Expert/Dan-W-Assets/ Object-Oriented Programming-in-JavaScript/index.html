@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Object-Oriented JavaScript demo project</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css" />
+    <style>
+        .filter-tools button {
+            margin-top: 1em;
+            margin-right: .5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <header class="col-md-12 page-header" id="titleContainer"></header>
+        </div>
+        <div class="row">
+            <main class="col-md-12">
+                <div id="gMap" style="height: 50em;"></div>
+                <div class="filter-tools">
+                    <div class="col-xs-4 col-md-1">
+                        <h3>Show:</h3>
+                    </div>
+                    <div col="col-xs-8 col-md-11" id="buttons"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBETtpavYBAuel9F6lPLE86v-8xUa9TIRk"></script>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+        SystemJS.import('./main.js');
+    </script>
+</body>
+</html>

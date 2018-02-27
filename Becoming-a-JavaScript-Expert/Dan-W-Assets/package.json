@@ -1,0 +1,28 @@
+{
+  "name": "building-high-performance-javascript-web-applications-course-assets",
+  "version": "0.1.0",
+  "description": "Code Examples from the Build High Performance JavaScript Web Applications course",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moderndeveloper-students/JavaScript_Course_Assets.git"
+  },
+  "keywords": [
+    "JavaScript"
+  ],
+  "author": "Dan Wellman",
+  "license": "LicenseRef-LICENSE",
+  "bugs": {
+    "url": "https://github.com/moderndeveloper-students/JavaScript_Course_Assets/issues"
+  },
+  "devDependencies": {
+    "busboy": "^0.2.14",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "jsonfile": "^2.4.0"
+  },
+  "private": true
+}
