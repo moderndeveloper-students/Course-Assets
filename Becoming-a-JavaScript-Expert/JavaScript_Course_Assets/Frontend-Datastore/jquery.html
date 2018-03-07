@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery AJAX</title>
+    <meta charset="utf-8" />
+    <style>
+        body { font-family: sans-serif; font-size: 1.2em; }
+        form { padding: 1.5em; }
+        label { display: block; margin-bottom: .25em; }
+        input { width: 17em; margin-bottom: 1.75em; border: 2px solid #E1E1E1; border-radius: 3px; padding: .75em 1em; }
+        button { display: block; padding: .5em .75em; border: 2px solid #A269C1; border-radius: 3px; background-color: #fff; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <form id="login">
+        <label for="username">Username</label><input id="username" />
+        <label for="password">Password</label><input type="password" id="password" />
+        <button type="submit">Login</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            $('#login').on('submit', function (event) {
+                var $inputs = $(this).find('input'),
+                    formData = new FormData();
+
+                $inputs.each(function (index, input) {
+                    formData.append(input.id, input.value);
+                });
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/signin',
+                    data: formData,
+                    processData: false,
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+
+                event.preventDefault();
+            });
+
+        }());
+    </script>
+</body>
+</html>

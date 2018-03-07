@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery get method</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <input id="message" />
+    <button id="send">Send request</button>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        $('#send').on('click', function () {
+            var data = $('#message').val();
+
+            $.get('/get_request', data, function (response) {
+                console.log(response);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>XHR Forms</title>
+    <meta charset="utf-8" />
+    <style>
+        body { font-family: sans-serif; font-size: 1.2em; }
+        form { padding: 1.5em; border:2px solid #E1E1E1; border-radius: 3px; }
+        label { display: block; margin-bottom: .75em; }
+        button { display:block; padding:.5em .75em; border: 2px solid #A269C1; border-radius: 3px; background-color: #fff; cursor: pointer; }
+        input { width: 17em; margin-bottom: 1.75em; border: 2px solid #E1E1E1; border-radius: 3px; padding: .75em 1em; }
+    </style>
+</head>
+<body>
+    <form id="login">
+        <label for="username">Username</label><input id="username" />
+        <label for="password">Password</label><input type="password" id="password" />
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var form = document.getElementById('login');
+
+            form.addEventListener('submit', function (event) {
+                //var xhr = new XMLHttpRequest(),
+                //    model = {
+                //        username: document.getElementById('username').value,
+                //        password: document.getElementById('password').value
+                //    };
+
+                //xhr.open('POST', '/form');
+                //xhr.send(JSON.stringify(model));
+
+                //event.preventDefault();
+                var xhr = new XMLHttpRequest(),
+                    formData = new FormData();
+
+                formData.append('username', document.getElementById('username').value);
+                formData.append('password', document.getElementById('password').value);
+
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        console.log(xhr.response);
+                    }
+                };
+
+                xhr.open('POST', '/signin');
+                xhr.send(formData);
+
+                event.preventDefault();
+            });
+
+        }());
+    </script>
+</body>
+</html>

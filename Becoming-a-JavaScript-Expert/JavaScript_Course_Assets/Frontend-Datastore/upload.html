@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>File Uploads</title>
+    <meta charset="utf-8" />
+    <style>
+        body { font-family: sans-serif; font-size: 1.2em; }
+        form { padding: 1.5em; border: 2px solid #E1E1E1; border-radius: 3px; }
+        label { display: block; margin-bottom: .75em; }
+        ::-webkit-file-upload-button, button { padding: .5em .75em; border: 2px solid #A269C1; border-radius: 3px; background-color: #fff; cursor: pointer; }
+        progress[value] { height: 8px; position: relative; top: -4px; }
+        [type=submit] { display: block; margin-top: 2em; }
+    </style>
+</head>
+<body>
+    <form id="upload" enctype="multipart/form-data">
+        <label for="fileToUpload">Choose a file to upload:</label>
+        <input type="file" id="fileToUpload" />
+        <progress id="uploadProgress" value="0" max="100"></progress>
+        <button type="submit">Upload</button>
+    </form>
+
+    <script>
+        (function () {
+            'use strict';
+
+            var form = document.getElementById('upload');
+
+            form.addEventListener('submit', function () {
+                var xhr = new XMLHttpRequest(),
+                    formData = new FormData(),
+                    files = form.querySelector('#fileToUpload').files,
+                    progressBar = document.getElementById('uploadProgress');
+
+                for (var x = 0; x < files.length; x++) {
+                    formData.append('uploadedFile', files[x], files[x].name);
+                }
+
+                xhr.upload.onprogress = function (e) {
+                    if (e.lengthComputable) {
+                        progressBar.value = (e.loaded / e.total) * 100;
+                    }
+                };
+
+                xhr.open('POST', '/upload');
+                xhr.send(formData);
+
+                event.preventDefault();
+            });
+        }());
+    </script>
+</body>
+</html>

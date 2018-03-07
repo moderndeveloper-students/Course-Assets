@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>XMLHttpRequest</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <script>
+        (function () {
+            'use strict';
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onload = function () {
+                // do something with the response
+                if (xhr.status === 200) {
+                    console.log(JSON.parse(xhr.response).data);
+
+                    console.log(xhr.getResponseHeader('Content-Type'));
+                }
+            };
+            xhr.open('GET', '/response.json');
+            xhr.setRequestHeader('Accept', 'application/json');
+            xhr.send();
+        }());
+    </script>
+</body>
+</html>
