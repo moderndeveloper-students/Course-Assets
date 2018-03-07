@@ -16,11 +16,11 @@ gulp.task('connect', function () {
               function middleware(req, res, next) {
                   // urls to respond to
                   let urls = {
-                      '/response.json': __dirname + '/chapter8/response.json',
-                      '/signin': __dirname + '/chapter8/loginresponse.json',
-                      '/get_request': __dirname + '/chapter8/getresponse.json',
-                      '/get_request?test_data': __dirname + '/chapter8/getresponse.json',
-                      '/create_account': __dirname + '/chapter8/createaccount.json'
+                      '/response.json': __dirname + '/AJAX-in-Depth/response.json',
+                      '/signin': __dirname + '/AJAX-in-Depth/loginresponse.json',
+                      '/get_request': __dirname + '/AJAX-in-Depth/getresponse.json',
+                      '/get_request?test_data': __dirname + '/AJAX-in-Depth/getresponse.json',
+                      '/create_account': __dirname + '/AJAX-in-Depth/createaccount.json'
                   };
                   let match = false;
 
@@ -54,7 +54,7 @@ gulp.task('connect', function () {
 
                       busboy.on('finish', function () {
                           match = true;
-                          respond(__dirname + '/chapter8/uploadresponse.json');
+                          respond(__dirname + '/AJAX-in-Depth/uploadresponse.json');
                       });
 
                       return req.pipe(busboy);
